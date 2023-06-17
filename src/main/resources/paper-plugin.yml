@@ -1,0 +1,4 @@
+name: HikuCraft
+version: '${project.version}'
+main: org.hikuro.hikucraft.HikuCraft
+api-version: 1.20
