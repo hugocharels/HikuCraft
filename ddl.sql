@@ -10,7 +10,7 @@ CREATE TABLE PlayerData (
 	TimeSpent TIME(1),
 
 	PRIMARY KEY (UUID),
-	UNIQUE (UUID),
+	UNIQUE (UUID)
 	
 );
 
@@ -28,7 +28,7 @@ CREATE TABLE Home (
 	UNIQUE (UUID, Name),
 	FOREIGN KEY (UUID) REFERENCES PlayerData (UUID) ON DELETE CASCADE ON UPDATE CASCADE,
 	
-	CONSTRAINT Home_World CHECK (World IN ('world', 'world_nether', 'world_the_end')),
+	CONSTRAINT Home_World CHECK (World IN ('world', 'world_nether', 'world_the_end'))
 
 );
 
