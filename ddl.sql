@@ -11,7 +11,7 @@ CREATE TABLE PlayerData (
 	PRIMARY KEY (UUID),
 	UNIQUE (UUID),
 	
-	CONSTRAINT 'PlayerData_TimePlayed' CHECK (TimePlayed >= 0),
+	CONSTRAINT PlayerData_TimePlayed CHECK (TimePlayed >= 0),
 
 );
 
@@ -26,7 +26,7 @@ CREATE TABLE Home (
 
 	PRIMARY KEY (UUID, Name),
 	UNIQUE (UUID, Name),
-	FOREIGN KEY (UUID) REFERENCES 'PlayerData' (UUID) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (UUID) REFERENCES PlayerData (UUID) ON DELETE CASCADE ON UPDATE CASCADE,
 	
 	CONSTRAINT 'Home_World' CHECK (World IN ('world', 'world_nether', 'world_the_end')),
 
