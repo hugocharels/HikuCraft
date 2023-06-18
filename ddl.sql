@@ -5,18 +5,18 @@ USE HikuCraft;
 -- Tables
 
 CREATE TABLE PlayerData (
+
 	UUID VARCHAR(36) NOT NULL,
-	TimePlayed TIME(1),
+	TimeSpent TIME(1),
 
 	PRIMARY KEY (UUID),
 	UNIQUE (UUID),
 	
-	CONSTRAINT PlayerData_TimePlayed CHECK (TimePlayed >= 0),
-
 );
 
 
 CREATE TABLE Home (
+
 	UUID VARCHAR(36) NOT NULL,
 	Name VARCHAR(16) NOT NULL,
 	World VARCHAR(16) NOT NULL,
@@ -41,5 +41,6 @@ CREATE USER IF NOT EXISTS 'HikuCraft_user'@'localhost' IDENTIFIED BY 'HikuCraft_
 GRANT ALL PRIVILEGES ON HikuCraft.* TO 'HikuCraft_admin'@'localhost';
 GRANT SELECT ON HikuCraft.* TO 'HikuCraft_user'@'localhost';
 GRANT INSERT ON HikuCraft.* TO 'HikuCraft_user'@'localhost';
-GRANT UPDATE(TimePlayed) ON HikuCraft.PlayerData TO 'HikuCraft_user'@'localhost';
+GRANT UPDATE(TimeSpent) ON HikuCraft.PlayerData TO 'HikuCraft_user'@'localhost';
 GRANT DELETE ON HikuCraft.Home TO 'HikuCraft_user'@'localhost';
+
