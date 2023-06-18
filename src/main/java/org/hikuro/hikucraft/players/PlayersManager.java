@@ -9,7 +9,18 @@ import java.util.UUID;
 
 public class PlayersManager implements org.hikuro.hikucraft.Manager {
 
+    private static PlayersManager instance = null;
+
     private final Map<UUID, PlayerData> playersData = new HashMap<>();
+
+
+    private PlayersManager() {}
+
+    public static PlayersManager getInstance() {
+        if (instance == null) { instance = new PlayersManager(); }
+        return instance;
+    }
+
 
     public void addPlayer(Player player) { playersData.put(player.getUniqueId(), new PlayerData()); }
     public void removePlayer(Player player) { playersData.remove(player.getUniqueId()); }
