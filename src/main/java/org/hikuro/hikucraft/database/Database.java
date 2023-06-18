@@ -1,4 +1,4 @@
-package org.hikuro.hikucraft.Database;
+package org.hikuro.hikucraft.database;
 
 // lib imports
 import java.sql.Connection;
