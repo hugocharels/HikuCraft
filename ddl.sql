@@ -4,10 +4,10 @@ USE HikuCraft;
 
 -- Tables
 
-CREATE TABLE PlayerData (
+CREATE TABLE PlayerDatas (
 
 	UUID VARCHAR(36) NOT NULL,
-	TimeSpent TIME(1),
+	TimeSpent UNSIGNED INT NOT NULL DEFAULT 0,
 
 	PRIMARY KEY (UUID),
 	UNIQUE (UUID)
@@ -15,7 +15,7 @@ CREATE TABLE PlayerData (
 );
 
 
-CREATE TABLE Home (
+CREATE TABLE Homes (
 
 	UUID VARCHAR(36) NOT NULL,
 	Name VARCHAR(16) NOT NULL,
@@ -43,4 +43,3 @@ GRANT SELECT ON HikuCraft.* TO 'HikuCraft_user'@'localhost';
 GRANT INSERT ON HikuCraft.* TO 'HikuCraft_user'@'localhost';
 GRANT UPDATE(TimeSpent) ON HikuCraft.PlayerData TO 'HikuCraft_user'@'localhost';
 GRANT DELETE ON HikuCraft.Home TO 'HikuCraft_user'@'localhost';
-
