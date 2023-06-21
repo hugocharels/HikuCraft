@@ -5,21 +5,25 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import org.hikuro.hikucraft.commands.CommandsManager;
-import org.hikuro.hikucraft.database.DatabaseManager;
-import org.hikuro.hikucraft.players.PlayersManager;
+import org.hikuro.hikucraft.command.CommandsManager;
+import org.hikuro.hikucraft.database.DatabasesManager;
+import org.hikuro.hikucraft.listener.ListenersManager;
+import org.hikuro.hikucraft.player.PlayersManager;
 
 
 public final class HikuCraft extends JavaPlugin {
 
-	private final CommandsManager commandsManager = CommandsManager.getInstance();
-	private final DatabaseManager databaseManager = DatabaseManager.getInstance();
-	private final PlayersManager playersManager = PlayersManager.getInstance();
+	private final CommandsManager cManager = CommandsManager.getInstance();
+	private final DatabasesManager dbManager = DatabasesManager.getInstance();
+	private final PlayersManager pManager = PlayersManager.getInstance();
+	private final ListenersManager lManager = ListenersManager.getInstance();
 
 
 	@Override
 	public void onEnable() {
 		// Plugin startup logic
+		cManager.registerCommands(this);
+		lManager.registerListeners(this);
 	}
 
 	@Override
@@ -27,10 +31,5 @@ public final class HikuCraft extends JavaPlugin {
 		// Plugin shutdown logic
 	}
 
-	@EventHandler
-	public void onPlayerJoin(PlayerJoinEvent event) { playersManager.joinPlayer(event.getPlayer()); }
-
-	@EventHandler
-	public void onPlayerQuit(PlayerQuitEvent event) { playersManager.quitPlayer(event.getPlayer()); }
 
 }

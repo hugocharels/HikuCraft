@@ -1,4 +1,4 @@
-package org.hikuro.hikucraft.players;
+package org.hikuro.hikucraft.player;
 
 import java.time.Duration;
 import java.time.LocalTime;

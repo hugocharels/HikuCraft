@@ -1,9 +1,8 @@
-package org.hikuro.hikucraft.players;
+package org.hikuro.hikucraft.player;
 
 import org.bukkit.entity.Player;
 
 import java.time.Duration;
-import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;

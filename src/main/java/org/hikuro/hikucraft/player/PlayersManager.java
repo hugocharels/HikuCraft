@@ -1,8 +1,8 @@
-package org.hikuro.hikucraft.players;
+package org.hikuro.hikucraft.player;
 
 
 import org.bukkit.entity.Player;
-import org.hikuro.hikucraft.database.DatabaseManager;
+import org.hikuro.hikucraft.database.DatabasesManager;
 import org.hikuro.hikucraft.database.PlayerDatabase;
 
 import java.time.Duration;
@@ -29,7 +29,7 @@ public class PlayersManager implements org.hikuro.hikucraft.Manager {
 	public void quitPlayer(Player player) {
 		playersData.removePlayer(player);
 		try {
-			PlayerDatabase db = DatabaseManager.getInstance().getPlayerDatabase();
+			PlayerDatabase db = DatabasesManager.getInstance().getPlayerDatabase();
 			Duration timeSpent = playersData.getPlayerTimeSpent(player);
 			Duration timeSpentInDatabase = db.getTimeSpent(player.getUniqueId());
 			db.updateTimeSpent(player.getUniqueId(), timeSpent.plus(timeSpentInDatabase));
