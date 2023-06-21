@@ -30,9 +30,12 @@ public class CommandsManager implements org.hikuro.hikucraft.Manager, org.bukkit
 		Player player = (Player) sender;
 		CommandExecutor executor;
 		switch (cmd.getName().toLowerCase()) {
-			case "home": executor = new HomeCommandExecutor(); break;
-			case "tp"  : executor = new TeleportCommandExecutor(); break;
-			default    : executor = new DefaultCommandExecutor();
+			case "sethome" :
+			case "delhome" :
+			case "home"    : executor = new HomeCommandExecutor(); break;
+			case "tpaccept":
+			case "tp"      : executor = new TeleportCommandExecutor(); break;
+			default        : executor = new DefaultCommandExecutor();
 		}
 		return executor.execute(player, args);
 	}

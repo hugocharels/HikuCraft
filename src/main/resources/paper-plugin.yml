@@ -1,4 +1,10 @@
-name: HikuCraft
-version: '${project.version}'
 main: org.hikuro.hikucraft.HikuCraft
-api-version: 1.20
+name: HikuCraft
+version: 1.0
+description: HikuCraft
+author: Hikuro23
+api-version: 1.20.1
+commands:
+  home:
+    description: To teleport to a home
+    usage: /home <home name>
